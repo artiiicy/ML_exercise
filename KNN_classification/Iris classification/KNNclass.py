@@ -52,20 +52,21 @@ class knn:
                 count[1] += 1
             else:
                 count[2] += 1
-        return count.index(max(count))
+
+        return np.argmax(count)
 
     # Obtain class with Weighted Majority Vote method
     def obtain_wmv(self, class_list, dis_list, class_num):
-        count = [0, 0, 0]
+        count = np.zeros(class_num)
 
         j = 0
         for i in class_list:
             if i == 0:
-                count[0] += 1/dis_list[j]
+                count[0] += 1/(dis_list[j] + np.finfo(float).eps)
             elif i == 1:
-                count[1] += 1/dis_list[j]
+                count[1] += 1/(dis_list[j] + np.finfo(float).eps)
             else:
-                count[2] += 1/dis_list[j]
+                count[2] += 1/(dis_list[j] + np.finfo(float).eps)
             j += 1
 
-        return count.index(max(count))
+        return np.argmax(count)
