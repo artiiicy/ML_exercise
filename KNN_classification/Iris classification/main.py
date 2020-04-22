@@ -2,7 +2,7 @@ import numpy as np
 from sklearn.datasets import load_iris
 import KNNclass
 
-# Load the Ires data sets
+# Load the Iris data sets
 iris = load_iris()
 
 # Parsing the data sets
