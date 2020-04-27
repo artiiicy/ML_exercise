@@ -17,11 +17,7 @@ class knn:
 
         i = 0
         while i < len(self.x):
-            distance = 0
-            j = 0
-            while j < input_x.shape[0]:
-                distance += (int(input_x[j]) - int(self.x[i][j]))**2
-                j += 1
+            distance = np.linalg.norm(input_x - self.x[i])
             distance = distance ** (1/2)
             dis_pair = [[distance, i]]
             distances += dis_pair
@@ -56,12 +52,7 @@ class knn:
 
         j = 0
         for i in class_list:
-            if i == 0:
-                count[0] += 1/(dis_list[j] + np.finfo(float).eps)
-            elif i == 1:
-                count[1] += 1/(dis_list[j] + np.finfo(float).eps)
-            else:
-                count[2] += 1/(dis_list[j] + np.finfo(float).eps)
+            count[i] += 1 / (dis_list[j] + np.finfo(float).eps)
             j += 1
 
         return np.argmax(count)
