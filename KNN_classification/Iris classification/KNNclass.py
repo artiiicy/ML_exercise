@@ -12,7 +12,7 @@ class knn:
         print(self.y)
 
     # Calculate the distance btw test data and train data sets
-    def cal_distance(self, input_x, input_y):
+    def cal_distance(self, input_x):
         distances = []
 
         i = 0
