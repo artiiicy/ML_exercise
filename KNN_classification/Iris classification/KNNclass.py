@@ -46,12 +46,7 @@ class knn:
         count = np.zeros(class_num)
 
         for i in class_list:
-            if i == 0:
-                count[0] += 1
-            elif i == 1:
-                count[1] += 1
-            else:
-                count[2] += 1
+            count[i] += 1
 
         return np.argmax(count)
 
@@ -61,12 +56,7 @@ class knn:
 
         j = 0
         for i in class_list:
-            if i == 0:
-                count[0] += 1/(dis_list[j] + np.finfo(float).eps)
-            elif i == 1:
-                count[1] += 1/(dis_list[j] + np.finfo(float).eps)
-            else:
-                count[2] += 1/(dis_list[j] + np.finfo(float).eps)
+            count[i] += 1 / (dis_list[j] + np.finfo(float).eps)
             j += 1
 
         return np.argmax(count)
