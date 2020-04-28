@@ -42,7 +42,7 @@ for k_value in k_list:
 
     i = 0
     while i < len(x_test):
-        distances = new_knn.cal_distance(x_test[i], y_test[i])
+        distances = new_knn.cal_distance(x_test[i])
         class_list, dis_list = new_knn.obtain_KNN(distances)
         result = new_knn.obtain_mv(class_list, len(y_name))
         print("Test Data Index:", i, "Computed class:", y_name[result], "    True class:", y_name[y_test[i]])
@@ -55,7 +55,7 @@ for k_value in k_list:
 
     i = 0
     while i < len(x_test):
-        distances = new_knn.cal_distance(x_test[i], y_test[i])
+        distances = new_knn.cal_distance(x_test[i])
         class_list, dis_list = new_knn.obtain_KNN(distances)
         result = new_knn.obtain_wmv(class_list, dis_list, len(y_name))
         print("Test Data Index:", i, "Computed class:", y_name[result], "    True class:", y_name[y_test[i]])
