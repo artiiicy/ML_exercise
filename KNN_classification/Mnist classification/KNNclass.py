@@ -47,7 +47,9 @@ class knn:
         return np.argmax(count)
 
     # Obtain class with Weighted Majority Vote method : class_list의 값 중 어떠한 값이 가장 많은지를 조건문을 통해 파악하여 반환하고 카운팅은 1/distance로 한다. class_num = class의 개수
-    def obtain_wmv(self, class_list, dis_list, class_num):
+    def obtain_wmv(self, input_x, class_num):
+        distances = self.cal_distance(input_x)
+        class_list, dis_list = self.obtain_KNN(distances)
         count = np.zeros(class_num)
 
         j = 0
