@@ -23,6 +23,11 @@ def generate_rand_data(origin_size, rand_size):
 
     return rand_array
 
+def print_result(start_time, true_score, total_score):
+    print('prediction time :', time.time() - start_time)
+    print('accuracy :', '%.2f' % (true_score/total_score))
+    print('score :', true_score, '/', total_score)
+
 # Load Mnist Data set
 (x_train, y_train), (x_test, y_test) = load_mnist(flatten=True, normalize=True)
 
@@ -45,21 +50,18 @@ for k_value in k_list:
 
     start = time.time() # prediction time 기록을 위하여 학습 시작 시간 기록.
     while i < len(x_test_rand):
-        distances = new_knn.cal_distance(x_test_rand[i])
-        class_list, dis_list = new_knn.obtain_KNN(distances)
-        result = new_knn.obtain_wmv(class_list, dis_list, len(label_name))
+        result = new_knn.obtain_wmv(x_test_rand[i], len(label_name))
         print(i, "th data    Result:", label_name[result], "    Label:", label_name[y_test_rand[i]], "    ", label_name[result]==label_name[y_test_rand[i]])
         i += 1
         score += new_knn.get_score(label_name[result], label_name[y_test_rand[i-1]])
 
-    print('prediction time :', time.time() - start)
-    print('accuracy :', '%.2f' % (score/i))
-    print('score :', score, '/', i)
+    print_result(start, score, i)
 
 print("*** input feature dimension :", int(x_test_rand.shape[1] / 4), "***")
 for k_value in k_list:
     print("k :", k_value)
 
+    # input feature dimension 변경 (Hand-crafted 방식)
     x_train = x_train.reshape(60000, 28, 28)
     x_train = x_train[:, :, 14:21]
     x_train = x_train.reshape(60000, 28*7)
@@ -74,13 +76,9 @@ for k_value in k_list:
 
     start = time.time()
     while i < len(x_test_rand):
-        distances = new_knn.cal_distance(x_test_rand[i])
-        class_list, dis_list = new_knn.obtain_KNN(distances)
-        result = new_knn.obtain_wmv(class_list, dis_list, len(label_name))
-        #print(i, "th data    Result:", label_name[result], "    Label:", label_name[y_test_rand[i]], "    ", label_name[result]==label_name[y_test_rand[i]])
+        result = new_knn.obtain_wmv(x_test_rand[i], len(label_name))
+        print(i, "th data    Result:", label_name[result], "    Label:", label_name[y_test_rand[i]], "    ", label_name[result]==label_name[y_test_rand[i]])
         i += 1
         score += new_knn.get_score(label_name[result], label_name[y_test_rand[i-1]])
 
-    print('prediction time :', time.time() - start)
-    print('accuracy :', '%.2f' % (score/i))
-    print('score :', score, '/', i)
+    print_result(start, score, i)
