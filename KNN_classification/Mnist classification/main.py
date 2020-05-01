@@ -48,7 +48,7 @@ for k_value in k_list:
     i = 0
     score = 0
 
-    start = time.time() # prediction time 기록을 위하여 학습 시작 시간 기록.
+    start = time.time() # prediction time 기록을 위하여 학습 시작 시간 기록
     while i < len(x_test_rand):
         result = new_knn.obtain_wmv(x_test_rand[i], len(label_name))
         print(i, "th data    Result:", label_name[result], "    Label:", label_name[y_test_rand[i]], "    ", label_name[result]==label_name[y_test_rand[i]])
