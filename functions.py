@@ -59,3 +59,16 @@ def cross_entropy_error(y, t):
 def softmax_loss(X, t):
     y = softmax(X)
     return cross_entropy_error(y, t)
+
+def cross_entropy_error(y, t):
+    if y.ndim == 1:
+        t = t.reshape(1, t.size)
+        y = y.reshape(1, y.size)
+    batch_size = y.shape[0]
+
+    result = np.sum(t * -np.log(y + np.finfo(float).eps))# / batch_size
+    return result
+
+def numerical_difference(f, x):
+    h = 1e-4
+    return (f(x+h)-f(x-h)) / (2*h)
