@@ -19,10 +19,8 @@ for i in range(1, len(X)+1):
         x_train[i - 1] = False
     else:
         x_train[i - 1] = True
-x_test = ~np.array(x_train)
-
+x_test = np.array(X[~np.array(x_train)])
 x_train = np.array(X[x_train])
-x_test = np.array(X[x_test])
 
 y_train = np.zeros((len(y),)).astype(np.bool)
 for i in range(1, len(y)+1):
@@ -30,10 +28,8 @@ for i in range(1, len(y)+1):
         y_train[i - 1] = False
     else:
         y_train[i - 1] = True
-y_test = ~np.array(y_train)
-
+y_test = np.array(y[~np.array(y_train)])
 y_train = np.array(y[y_train])
-y_test = np.array(y[y_test])
 
 print("*** Majority Vote Method ***")
 for k_value in k_list:
