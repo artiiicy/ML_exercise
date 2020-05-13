@@ -23,25 +23,9 @@ num = np.unique(y_train, axis=0)  # num = y array 중 unique한 값들로만 이
 num = num.shape[0]  # num = y array 중 unique한 값들의 개수
 y_train = np.eye(num)[y_train]  # np.eye = 단위행렬을 만드는 함수. 즉, y의 unique한 개수만큼의 row를 가지는 단위행렬을 만들고 y에 해당하는 row를 추출한다.
 
-LRmodel = logisticRegression.logisticRegression(0.001, X_train, y_train)
+LRmodel = logisticRegression.logisticRegression(X_train, y_train)
 
-start = time.time()
-iteration_array = []
-cost_array = []
-
-for i in range(1,101):
-    iteration_array.append(i)
-    cost_array.append(LRmodel.cost())
-    print("epoch:", i, "  cost:", cost_array[i - 1])
-    LRmodel.learn()
-
-prediction_Time = time.time() - start
+# train Data set
+LRmodel.learn(learning_rate=0.001, epoch=10)
 accuracy = LRmodel.predict(X_test, y_test)
-print("accuracy:", accuracy, "  Prediction time:", prediction_Time)
-
-plt.plot(iteration_array, cost_array)
-plt.title('Loss Graph')
-plt.xlabel('number of iteration')
-plt.ylabel('cost')
-plt.legend(['0','1','2','3','4','5','6','7','8','9'],loc='upper right')
-plt.show()
+print("accuracy:", accuracy, "  score:", int(accuracy*y_test.shape[0]), "/", y_test.shape[0])
