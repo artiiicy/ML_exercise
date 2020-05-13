@@ -60,15 +60,49 @@ def softmax_loss(X, t):
     y = softmax(X)
     return cross_entropy_error(y, t)
 
+
 def cross_entropy_error(y, t):
     if y.ndim == 1:
         t = t.reshape(1, t.size)
         y = y.reshape(1, y.size)
     batch_size = y.shape[0]
-
     result = np.sum(t * -np.log(y + np.finfo(float).eps))# / batch_size
     return result
 
+
+def cross_entropy_error_label(y, t_label):
+    epsilon = 1e-7
+    if y.ndim == 1:
+        y = y.reshape(1, y.size)
+        t_label = t_label.reshape(1, t_label.size)
+    batch_size = y.shape[0]
+    result = -np.sum(np.log(y[np.arange(batch_size), t_label])) / batch_size
+    return result
+
+
+# 수치미분 함수
 def numerical_difference(f, x):
     h = 1e-4
     return (f(x+h)-f(x-h)) / (2*h)
+
+
+# 편미분 함수
+def numerical_gradient(f, x):
+    h = 1e-4
+    grad = np.zeros_like(x) # x와 같은 형상의 배열 생성
+    for i in range(x.size):
+        xi = x[i]
+        x[i] = xi + h
+        fx1 = f(x)
+        x[i] = xi - h
+        fx2 = f(x)
+        grad[i] = (fx1-fx2) / (2*h)
+        x[i] = xi
+    return grad
+
+
+def gradient_descent(f, init_x, lr=0.1, epoch=100):
+    x = init_x
+    for i in range(epoch):
+        x -= lr * numerical_gradient(f, x)
+    return x
