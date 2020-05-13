@@ -37,7 +37,7 @@ start = time.time()
 iteration_array = []
 cost_array = []
 
-for i in range(1,101):
+for i in range(1,501):
     iteration_array.append(i)
     cost_array.append(LRmodel.cost())
     print("epoch:", i, "  cost:", cost_array[i - 1])
@@ -48,6 +48,8 @@ accuracy = LRmodel.predict(x_test, y_test)
 print("accuracy:", accuracy, "  Prediction time:", prediction_Time)
 
 plt.plot(iteration_array, cost_array)
+plt.title('Loss Graph')
 plt.xlabel('number of iteration')
 plt.ylabel('cost')
+plt.legend(['0','1','2','3','4','5','6','7','8','9'],loc='upper right')
 plt.show()
