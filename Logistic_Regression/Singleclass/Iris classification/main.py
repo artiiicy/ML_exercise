@@ -25,12 +25,6 @@ X_train, X_test, y_train, y_test\
                                                                                            # shuffle : 셔플 여부 설정, random_state : 셔플을 위한 시드 값 지정
 y_train, num = one_hot_encoding(y_train)
 y_test, num = one_hot_encoding(y_test)
-# num = np.unique(y_train, axis=0)  # num = y array 중 unique한 값들로만 이루어진 array
-# num = num.shape[0]  # num = y array 중 unique한 값들의 개수
-# y_train = np.eye(num)[y_train]  # np.eye = 단위행렬을 만드는 함수. 즉, y의 unique한 개수만큼의 row를 가지는 단위행렬을 만들고 y에 해당하는 row를 추출한다.
-# num = np.unique(y_train, axis=0)
-# num = num.shape[0]
-# y_train = np.eye(num)[y_train]
 
 LRmodel, cost_arr = [], []
 i = 0
