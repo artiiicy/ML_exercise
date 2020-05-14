@@ -22,7 +22,7 @@ X_train, X_test, y_train, y_test\
     = train_test_split(X, y, test_size=1/15, shuffle=True, random_state=int(time.time()))  # sklearn의 데이터분할 내장함수 사용.
                                                                                            # test_size : 전체 데이터의 몇 %를 test data로 사용할지 지정
                                                                                            # shuffle : 셔플 여부 설정, random_state : 셔플을 위한 시드 값 지정
-y_train = one_hot_encoding(y_train)
+y_train, num = one_hot_encoding(y_train)
 
 LRmodel = logisticRegression.logisticRegression(X_train, y_train, "multi")
 
