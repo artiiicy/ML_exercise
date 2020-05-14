@@ -2,7 +2,6 @@ import numpy as np
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 import time
-import matplotlib.pyplot as plt
 import logisticRegression
 
 # Load Iris Data set
@@ -23,7 +22,7 @@ num = np.unique(y_train, axis=0)  # num = y array 중 unique한 값들로만 이
 num = num.shape[0]  # num = y array 중 unique한 값들의 개수
 y_train = np.eye(num)[y_train]  # np.eye = 단위행렬을 만드는 함수. 즉, y의 unique한 개수만큼의 row를 가지는 단위행렬을 만들고 y에 해당하는 row를 추출한다.
 
-LRmodel = logisticRegression.logisticRegression(X_train, y_train)
+LRmodel = logisticRegression.logisticRegression(X_train, y_train, "multi")
 
 # train Data set
 LRmodel.learn(learning_rate=0.001, epoch=10)
