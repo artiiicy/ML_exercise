@@ -30,7 +30,7 @@ LRmodel_arr, cost_arr = [], []
 i = 0
 while i < class_num:
     print("\n***", i, "th Logistic Regression model ***")
-    LRmodel_arr.append(logisticRegression.logisticRegression(X_train, y_train[:, i], 'single'))
+    LRmodel_arr.append(logisticRegression.logisticRegression(X_train, y_train[:, i]))
     cost_arr.append(LRmodel_arr[i].learn(learning_rate=0.0001, epoch=100))
     i += 1
 
