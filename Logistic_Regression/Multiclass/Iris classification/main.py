@@ -24,7 +24,7 @@ X_train, X_test, y_train, y_test\
                                                                                            # shuffle : 셔플 여부 설정, random_state : 셔플을 위한 시드 값 지정
 y_train, class_num = one_hot_encoding(y_train)
 
-LRmodel = logisticRegression.logisticRegression(X_train, y_train, "multi")
+LRmodel = logisticRegression.logisticRegression(X_train, y_train)
 
 # train Data set
 LRmodel.learn(learning_rate=0.001, epoch=10)
