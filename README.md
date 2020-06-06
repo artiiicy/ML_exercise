@@ -5,4 +5,4 @@ Machine Learning Exercise
 
 2. Logistic Regression
 
-3. Neural Network
+3. Neural Network (Two Layer Network)
