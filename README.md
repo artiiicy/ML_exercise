@@ -13,7 +13,7 @@ Logistic Regression을 이용한 Iris, Mnist Data를 분류하는 SigleClass Mod
 
 ## 3. Neural Network (Two Layer Network)
 
-Neural Network로 구성된 Two Layer Network를 이용한 Iris Data를 분류하는 Model
+Neural Network로 구성된 Two Layer Network를 이용한 Iris Data를 분류하는 Model.
 
 ## 4. Deep Neural Network
 
