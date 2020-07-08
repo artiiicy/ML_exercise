@@ -25,14 +25,11 @@ sigma = zeros(1, size(X, 2));
 %
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
+mu = mean(X, 1);
+sigma = std(X);
 
-
-
-
-
-
-
-
+X_norm = (X - mu) ./ sigma;
+% X = [ones(size(X, 1), 1), X];   % Add a column of ones to x
 
 % ============================================================
 
