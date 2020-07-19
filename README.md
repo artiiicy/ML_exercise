@@ -17,4 +17,4 @@ Neural Network로 구성된 Two Layer Network를 이용한 Iris Data를 분류�
 
 ## 4. Deep Neural Network
 
-Deep Neural Network를 이용한 AReM Data를 분류하는 Model
+Deep Neural Network를 이용한 AReM Data를 분류하는 Model.
