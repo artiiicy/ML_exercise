@@ -32,7 +32,10 @@ J = J + reg;
 
 % calculate the gradient
 grad = (1/m) * (X' * (hypothesis - y));
-reg_grad = (lambda / m) * theta(2:end);
+
+temp_theta = theta;
+temp_theta(1) = 0;
+reg_grad = (lambda / m) * temp_theta;
 
 grad = grad + reg_grad;
 

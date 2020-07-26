@@ -22,7 +22,7 @@ for i = 1:num
     temp_list = zeros(p, 1);
     
     for j = 1:p
-        temp_list = X(i).^j;
+        temp_list(j) = X(i).^j;
     end
     
     X_poly(i, :) = temp_list;
