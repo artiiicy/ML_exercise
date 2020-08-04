@@ -3,7 +3,7 @@ Machine Learning Exercise를 위한 toy-project 진행 repository.
 
 ## 0. Coursera ML Exercise
 
-코세라
+Coursera의 Stanford Univ.
 
 ## 1. KNN algorithm
 
