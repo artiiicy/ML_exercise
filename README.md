@@ -1,7 +1,7 @@
 # ML_exercise
 Machine Learning Exercise를 위한 toy-project 진행 repository.
 
-## 0. Coursera ML Exercise
+## Coursera ML Exercise
 
 Coursera의 Stanford Univ. Andrew Ng 교수님의 Machine Learning 과제.
 
