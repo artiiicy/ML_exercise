@@ -5,7 +5,7 @@ Machine Learning Exercise를 위한 toy-project 진행 repository.
 
 Coursera의 Stanford Univ. Andrew Ng 교수님의 Machine Learning 과제.
 
-## 1. KNN algorithm
+## KNN algorithm
 
 KNN 알고리즘을 이용한 Iris, Mnist Data를 분류하는 Model.
 
