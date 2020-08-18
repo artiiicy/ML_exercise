@@ -9,7 +9,7 @@ Coursera의 Stanford Univ. Andrew Ng 교수님의 Machine Learning 과제.
 
 KNN 알고리즘을 이용한 Iris, Mnist Data를 분류하는 Model.
 
-## 2. Logistic Regression
+## Logistic Regression
 
 Logistic Regression을 이용한 Iris, Mnist Data를 분류하는 SigleClass Model, MultiClass Model.
 
